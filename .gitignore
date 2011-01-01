@@ -29,3 +29,6 @@ Icon?
 *.nav
 *.snm
 *.vrb
+*.pdf
+*.ps
+*.dvi
