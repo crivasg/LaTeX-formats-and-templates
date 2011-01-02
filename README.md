@@ -8,8 +8,11 @@ Projects
 
 The projects I have worked on are:
 
-* [ITESM Tesis](http://bit.ly/agXUsS)
-* [UPC Tesis](http://bit.ly/ayTHQq)
+* [ITESM Tesis](http://bit.ly/agXUsS). Created by Alejandro Rdz.
+* [UPC Tesis](http://bit.ly/ayTHQq). Created by Prof. Mario Arroyo and modified by Eloi Ruiz
+
+Scripts
+--------
 
 Interesting files
 --------
@@ -21,5 +24,3 @@ Requierements
 -------------
 
 The only requirement is a working [LaTeX](http://en.wikipedia.org/wiki/LaTeX) distribution. 
-
-EOF.
