@@ -1,0 +1,1 @@
+find . -name "*.eps" -type f -print -exec epspdf {} \;
