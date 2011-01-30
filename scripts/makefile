@@ -15,10 +15,10 @@ pdflatex:
 	$(PDFLATEX) $(TEXSRC)
 	
 full-build:
-	$(LATEXCMD) $(TEXSRC)
+	$(PDFLATEX) $(TEXSRC)
 	$(BIBCMD) $(BIBFILE)
-	$(LATEXCMD) $(TEXSRC)
-	$(LATEXCMD) $(TEXSRC)
+	$(PDFLATEX) $(TEXSRC)
+	$(PDFLATEX) $(TEXSRC)
 	
 zip:
 	@echo "* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *" 
