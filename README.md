@@ -9,7 +9,7 @@ Projects
 The projects I have worked on are:
 
 * [ITESM Tesis](http://bit.ly/agXUsS). Created by Alejandro Rdz.
-* [UPC Tesis](http://bit.ly/ayTHQq). Created by Prof. Mario Arroyo and modified by Eloi Ruiz
+* [UPC Tesis](http://bit.ly/ayTHQq). Created by [Prof. Mario Arroyo](http://www-lacan.upc.edu/arroyo/Site/Marino_Arroyo.html) and modified by [Eloi Ruiz](http://www-lacan.upc.edu/ruiz)
 
 Scripts
 --------
