@@ -1,0 +1,65 @@
+%-----------------------------
+% Page options
+
+\oddsidemargin  3cm \evensidemargin  2.7cm \topmargin  2.5cm %
+%\oddsidemargin  2cm \evensidemargin  2cm \topmargin  1cm %
+\headheight 12pt \headsep  30pt \textheight  21cm %
+\textwidth  15.3cm \marginparsep  0pt \marginparwidth  0pt %
+\footskip 30pt \hoffset  -1in \voffset  -1in %
+%\paperwidth  19.0cm \paperheight  26.3cm %
+%\paperwidth  21.0cm \paperheight  29.7cm %
+\setstretch{1.36}
+
+%-----------------------------
+
+
+% The following four numbers are to make TeX more likely to put figures on the
+% same page rather than on a separate figures page. Can tinker with these, but
+% make sure floatpagefraction<topfraction.
+% Values recommended by the web page I found were 0.15, 0.85, 0.65, 0.60. The
+% default values are 0.2, 0.7, 0.3, 0.5
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.3}
+\renewcommand{\floatpagefraction}{0.85}
+
+\setlength{\parindent}{0in}
+
+%-----------------------------
+
+\let \cite \citep
+
+
+%\renewcommand{\cite}[1]
+%{
+%  \citep{#1}
+%}
+
+%-----------------------------
+
+\makeatletter
+
+\def\cleardoublepage
+{
+  \clearpage
+  \if@twoside
+    \ifodd
+      \c@page
+    \else
+      \hbox{}
+      \vspace*{\fill}
+      \begin{center}
+        %\rotatebox{54.73}{\Huge \sc{This Page Intentionally Left Blank}}
+      \end{center}
+      \vspace{\fill}
+      \thispagestyle{empty}
+      \newpage
+      \if@twocolumn
+        \hbox{}
+        \newpage
+      \fi
+    \fi
+  \fi
+}
+
+\makeatother

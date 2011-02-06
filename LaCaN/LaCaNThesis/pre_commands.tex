@@ -1,0 +1,504 @@
+% !TEX root = ../LaCaNtesis.tex
+% setter commands
+
+\newcommand{\setAuthor}[1]
+{
+  \newcommand{\Autor}{#1}
+}
+
+\newcommand{\setTitle}[1]
+{
+  \newcommand{\ttitulo}{#1}
+  \newcommand{\Titulo}{{\large{\ttitulo}}}
+}
+
+\newcommand{\setAdvisor}[1]
+{
+  \newcommand{\Advisor}{#1}
+}
+
+\newcommand{\setDate}[1]
+{
+  \newcommand{\Date}{#1}
+}
+
+\newcommand{\figuresPath}{}
+
+\newcommand{\setFiguresPath}[1]
+{
+  \renewcommand{\figuresPath}{#1}
+}
+
+% Do's commands
+
+\newcommand{\doTitle}
+{
+  \input{LaCaNThesis/titlepage}
+}
+
+\newcommand{\doContents}
+{
+  \begin{singlespace}
+
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\contentsname}
+  \tableofcontents
+
+  \cleardoublepage
+
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\listfigurename}
+  \listoffigures
+
+  \cleardoublepage
+
+  %\phantomsection
+  %\addcontentsline{toc}{chapter}{\listtablename}
+  %\listoftables
+
+  %\clearpage\addcontentsline{toc}{chapter}{\boxesname}
+  %\listof{Box}{\boxesname}
+
+  \cleardoublepage
+
+  \phantomsection
+  \addcontentsline{toc}{chapter}{\listalgorithmname}
+  \listofalgorithms
+
+  \end{singlespace}
+}
+
+
+
+\newcommand{\doAbstractTitle}
+{
+  %\input{LaCanThesis/abstractpage}
+
+  \thispagestyle{empty}
+
+  \clearpage\addcontentsline{toc}{chapter}{\abstractname}
+
+  \centerline{\sc{Universitat Polit\`ecnica
+  de Catalunya}}
+
+  \centerline{\sc{Programa de Doctorat de Matem\`atica
+  Aplicada}}
+
+  \vspace{0.3cm} \hrule \vspace{0.3cm}
+  \centerline{\sc{Departament de Matem\`atica Aplicada III}}
+
+  \vspace{0.75cm}
+
+  \begin{center}
+  {\sc{\Large \ttitulo}}\\
+  \rule{0.5\textwidth}{1pt}\\
+  {\sc \large \abstractname}\\[\baselineskip]
+  by\\
+  {\large \Autor}
+  \end{center}
+
+  \vspace{0.75cm}
+
+  \hfill
+  \begin{tabular}{r}
+  {Thesis Proposal}\\
+  {Advisor: \Advisor} \\
+  \noalign{\vspace{0.1cm}} \hline \vspace{0.3cm} \null
+  {Barcelona, \Date}
+  \end{tabular}
+
+  \vspace{2cm}
+}
+
+% New environments
+
+\newenvironment{Abstract}
+  {
+    \clearpage\addcontentsline{toc}{chapter}{\abstractname}
+
+    \begin{center}
+    {\large \textsc{\abstractname}}\\[\baselineskip]
+    \begin{singlespace}
+    \Titulo \\[\baselineskip]
+    \end{singlespace}
+    \Autor \\[\baselineskip]
+    \end{center}
+  }
+  {
+
+  }
+
+\newenvironment{Acknowledgements}
+  {
+    \clearpage\addcontentsline{toc}{chapter}{\acknowledgementname}
+    \begin{center}
+    {\large \textsc{\acknowledgementname}}\\[\baselineskip]
+    \end{center}
+  }
+  {
+
+  }
+
+% New listOf definitions
+
+\newcounter{todoListCounter}
+
+\newcommand{\theTodoListCounter}
+{
+  \arabic{todoListCounter}
+}
+
+\newenvironment{todoList}[1]
+{
+  \refstepcounter{todoListCounter}
+  \todo{#1}
+  \begin{enumerate}\addtolength{\itemsep}{-0.5\baselineskip}
+}
+{
+  \end{enumerate}
+  \rule[1cm]{\textwidth}{1pt}
+  \vspace{-1\baselineskip}
+}
+
+\newcommand{\listTodoName}
+{
+  There are \textcolor{red}{\theTodoListCounter} todo's
+}
+
+\newlistof{todo}{tmp}{\listTodoName}
+
+\newcommand{\todo}[1]
+{
+	\refstepcounter{todo}
+  \rule{\textwidth}{1pt}
+	$\rhd$ \textbf{\large \theTodoListCounter} \textcolor{red}{ \texttt{TODO}}: {\emph{#1}}\\
+  \rule[0.2cm]{\textwidth}{1pt}
+  \vspace{-2\baselineskip} \newline
+	\addcontentsline{tmp}{todo}{TODO \numberline{\thetodo:}#1}
+}
+
+% General definitions
+
+\newcommand{\acknowledgementname}
+{
+  Acknowledgments
+}
+
+\newcommand{\Appendix}
+{
+  \fancyhead[LO]{\rightmark}
+  \fancyhead[RE]{\sc{\leftmark}}
+
+  \appendix
+}
+
+\newcommand{\boxesname}
+{
+  List of Boxes
+}
+
+\providecommand{\abstractname}
+{
+  Abstract
+}
+
+\newcommand{\done}
+{
+  {\Huge \textcolor{green}{\checkmark}}
+}
+
+% shortcuts
+
+\newcommand{\x}{~$\times$~}
+\newcommand{\fig}{Figure~}
+\newcommand{\eref}[1]{Equation~(\ref{#1})}
+\newcommand{\erefs}[1]{Equations~(\ref{#1})}
+\newcommand{\fref}[1]{Figure~\ref{#1}}
+\newcommand{\frefs}[1]{Figures~\ref{#1}}
+\newcommand{\tref}[1]{Table~\ref{#1}}
+\newcommand{\trefs}[1]{Tables~\ref{#1}}
+\newcommand{\sref}[1]{Section~\ref{#1}}
+\newcommand{\srefs}[1]{Sections~\ref{#1}}
+\newcommand{\cref}[1]{Chapter~\ref{#1}}
+\newcommand{\crefs}[1]{Chapters~\ref{#1}}
+\newcommand{\aref}[1]{Appendix~\ref{#1}}
+\newcommand{\tsty}{\textstyle}
+\newcommand{\dsty}{\displaystyle}
+\newcommand{\arrow}{~$\rightarrow$~}
+\newcommand{\otheta}{\overline \theta}
+\newcommand{\mathG}{\mathcal{G}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\ol}{\overline}
+
+\newcommand{\Ker}{\mathrm{Ker \ }}
+\renewcommand{\Im}{\mathrm{Im \ }}
+
+
+% abbreviations
+
+\newcommand{\eg}{e.g.,\xspace}
+\newcommand{\ie}{i.e.,\xspace}
+\newcommand{\etc}{etc.\@\xspace}
+\newcommand{\cmatrixb}{\left\{ \begin{matrix}}
+\newcommand{\cmatrixe}{\end{matrix} \right\}}
+
+% general vector/matrix commands:
+
+\newcommand{\tvm}[1]{\textbf{#1}}
+\newcommand{\tvms}[1]{$\boldsymbol{#1}$\ }
+\newcommand{\vm}[1]{\mathbf{#1}}
+\newcommand{\vms}[1]{\boldsymbol{#1}}
+\newcommand{\bsym}[1]{\boldsymbol{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+
+% vector/matrix for space coordinates 'x' and 'y'
+
+\newcommand{\vx}{\mathbf{x}}
+\newcommand{\bx}{\boldsymbol{x}}
+\newcommand{\vxI}{\mathbf{x}_{I}}
+\newcommand{\xI}{x_{I}}
+\newcommand{\yI}{y_{I}}
+\newcommand{\hvx}{\hat{\mathbf{x}}}
+\newcommand{\hx}{\hat{x}}
+\newcommand{\hy}{\hat{y}}
+
+% Shortcuts for making slides
+
+\newcommand{\fontone}{\bfseries\Large}
+\newcommand{\fonttwo}{\bfseries\large}
+%\newcommand{\fontone}{\scshape\Large}
+%\newcommand{\fonttwo}{\scshape\large}
+\newcommand{\fontthree}{\bfseries}
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bitem}{\begin{itemize}}
+\newcommand{\eitem}{\end{itemize}}
+
+
+%--My own definitions--
+
+\newcommand{\reals}{{\mathbb R}}
+\newcommand{\bfalfi}{\mbox{\boldmath$\alpha$\unboldmath$_i$}}
+\newcommand{\bfalfj}{\mbox{\boldmath$\alpha$\unboldmath$_j$}}
+\newcommand{\remark}[2]{\vspace{0.1cm}
+\indent {\bf Remark #1:}  {#2}  \vspace{0.1cm}}
+\newcommand{\invisible}[1]{}
+\newcommand{\bgl}[1]{\mbox{\boldmath$#1$\unboldmath}}
+\newcommand{\parti}[2]{\frac{\partial #1}{\partial #2}}
+
+\newcommand{\listOfTodo}
+{
+  \ifthenelse{\theTodoListCounter > 0}
+  {
+    \phantomsection
+    \addcontentsline{toc}{chapter}{Todo's}
+    \cleardoublepage
+    \listoftodo
+  }
+  {
+
+  }
+}
+
+\theoremstyle{plain}
+%{\theorembodyfont{\upshape}
+
+\newtheorem{Rem}{Remark}[chapter]
+\newtheorem{Proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{Proof}{Proof}[chapter]
+
+\floatstyle{boxed}
+\newfloat{Box}{tbp}{bux}[chapter]
+
+%--My own definitions--
+
+\newcommand{\C}
+{
+  @{}c@{}
+}
+
+\renewcommand{\algorithmicensure}{\textbf{Return :}}
+
+\newcommand{\IfNot}[1]
+{
+  \If{\textbf{not} #1}
+}
+
+\newcommand{\Not}
+{\textbf{not \ }}
+
+\newcommand{\textproc}[1]
+{\texttt{#1}}
+
+\newcommand{\dotProduct}[2]
+{
+  <#1,#2>
+}
+
+\newcommand{\comp}[1]
+{
+  \overline{#1}
+}
+
+\newcommand{\define}[1]{\emph{#1}}
+
+% color definitions
+
+\definecolor{Olive}{rgb}{.8,0.8,0.0}
+\definecolor{Blue}{rgb}{.6,0.8,1}
+\definecolor{Orange}{rgb}{1,0.8,0}
+\definecolor{Red}{rgb}{1,0.5,0.5}
+\definecolor{Purple}{rgb}{.6,0.6,1}
+\definecolor{Green}{rgb}{.2,0.8,0.4}
+
+%item definition
+
+\newcommand{\Item}[1]
+{\item \emph{#1}}
+
+% colored items
+
+\newcommand{\coloredItem}[2]
+{
+  \item[\textcolor{#1}{$\bullet$}] \textbf{#2}
+}
+
+% new \includegraphics that looks for
+% figures in a selected path
+
+\newcommand{\includeGraphics}[2][]
+{
+  \includegraphics[#1]{\figuresPath/#2}
+}
+
+
+% my commands - Cesar A. Rivas
+\newcommand{\reyn}{\mathrm{Re}}
+\newcommand{\myttt}[1]{\texttt{#1}}
+
+\newcommand{\myfirst}{1${}^{\mathrm{st}}$ }
+\newcommand{\mysecond}{2${}^{\mathrm{nd}}$ }
+\newcommand{\mythrid}{3${}^{\mathrm{rd}}$ }
+
+%\newcommand{\mycomment}[1]{\texttt{\color{red}{#1}}}
+
+
+\newcommand{\mypartial}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\mypartialtwo}[2]{\frac{\partial^{2}#1}{\partial #2^{2}}}
+\newcommand{\mypartialcross}[3]{\frac{\partial^{2}#1}{{\partial #2 \partial #3}}}
+\newcommand{\myfull}[2]{{\mathrm{d} #1 \over \mathrm{d} #2}}
+\newcommand{\myfulltwo}[2]{{\mathrm{d}^{2} #1 \over \mathrm{d} #2^{2}}}
+\newcommand{\mymaterial}[2]{{\mathrm{D} #1 \over \mathrm{D} #2}}
+
+\newcommand{\mycomment}[1]{\texttt{\color{red}{#1}}}
+\newcommand{\mymat}[1]{\boldsymbol{#1}}
+
+\newcommand{\mySubfigureTwo}[2]{
+    \begin{figure}[t!]
+        \centering
+        \subfigure[]{\label{fig:#1-1}\includeGraphics[trim =43mm 95mm 42mm 95mm, clip, width=0.475\textwidth]{figures/#1-1.pdf}}
+        \subfigure[]{\label{fig:#1-2}\includeGraphics[trim =43mm 95mm 42mm 95mm, clip, width=0.475\textwidth]{figures/#1-2.pdf}}
+        \caption[#2]{#2. \subref{fig:#1-1} Giuliani's Method. \subref{fig:#1-2} Shape-based Smoother.}
+        \label{fig:#1}
+    \end{figure}	
+}
+
+\newcommand{\mySubfigureFour}[2]{
+    \begin{figure}[t!]
+        \centering
+        \subfigure[]{\label{fig:#1-before}\includeGraphics[trim = 52mm 87mm 52mm 87mm, clip, width=0.4\textwidth]{figures/#1-before.pdf}}
+        \subfigure[]{\label{fig:#1-after}\includeGraphics[trim = 52mm 87mm 52mm 87mm, clip, width=0.4\textwidth]{figures/#1-after.pdf}}\\
+        \subfigure[]{\label{fig:#1-before-hist}\includeGraphics[trim = 38mm 84mm 40mm 88mm, clip, width=0.4\textwidth]{figures/#1-before-hist.pdf}}
+        \subfigure[]{\label{fig:#1-after-hist}\includeGraphics[trim = 38mm 84mm 40mm 88mm, clip, width=0.4\textwidth]{figures/#1-after-hist}}
+        \caption[#2]{#2. Mesh configuration before \subref{fig:#1-before} and after \subref{fig:#1-after} smoothing. Shape quality histogram before \subref{fig:#1-before-hist} and after \subref{fig:#1-after-hist} smoothing.}
+        \label{fig:#1}
+    \end{figure}	
+}
+
+\newcommand{\mySubfigureFourB}[2]{
+    \begin{figure}[b!h]
+        \centering
+        \subfigure[]{\label{fig:#1-before}\includeGraphics[trim = 52mm 87mm 52mm 87mm, clip, width=0.4\textwidth]{figures/#1-before.pdf}}
+        \subfigure[]{\label{fig:#1-after}\includeGraphics[trim = 52mm 87mm 52mm 87mm, clip, width=0.4\textwidth]{figures/#1-after.pdf}}\\
+        \subfigure[]{\label{fig:#1-before-hist}\includeGraphics[trim = 38mm 84mm 40mm 88mm, clip, width=0.4\textwidth]{figures/#1-before-hist.pdf}}
+        \subfigure[]{\label{fig:#1-after-hist}\includeGraphics[trim = 38mm 84mm 40mm 88mm, clip, width=0.4\textwidth]{figures/#1-after-hist}}
+        \caption[#2]{#2. Mesh configuration before \subref{fig:#1-before} and after \subref{fig:#1-after} smoothing. Shape quality histogram before \subref{fig:#1-before-hist} and after \subref{fig:#1-after-hist} smoothing.}
+        \label{fig:#1}
+    \end{figure}	
+}
+
+\newcommand{\mySubfigureFourAVS}[3]{
+    \begin{figure}[t!]
+        \centering
+        \subfigure[]{\label{fig:#1-before}\includeGraphics[trim = #3, clip, width=0.4
+    \textwidth]{figures/#1-before.pdf}}
+        \subfigure[]{\label{fig:#1-after}\includeGraphics[trim = #3, clip, width=0.4
+    \textwidth]{figures/#1-after.pdf}}\\
+        \subfigure[]{\label{fig:#1-before-hist}\includeGraphics[trim = 40mm 80mm 40mm 88mm, clip, 
+    width=0.4\textwidth]{figures/#1-before-hist.pdf}}
+        \subfigure[]{\label{fig:#1-after-hist}\includeGraphics[trim = 40mm 80mm 40mm 88mm, clip, 
+    width=0.4\textwidth]{figures/#1-after-hist}}
+        \caption[#2]{#2. Mesh configuration before \subref{fig:#1-before} and after \subref{fig:#1-after} smoothing. Shape quality histogram before \subref{fig:#1-before-hist} and after \subref{fig:#1-after-hist} smoothing.}
+        \label{fig:#1}
+    \end{figure}	
+}
+
+\newcommand{\mySubfigureFourAVSB}[3]{
+    \begin{figure}[b!]
+        \centering
+        \subfigure[]{\label{fig:#1-before}\includeGraphics[trim = #3, clip, width=0.4
+    \textwidth]{figures/#1-before.pdf}}
+        \subfigure[]{\label{fig:#1-after}\includeGraphics[trim = #3, clip, width=0.4
+    \textwidth]{figures/#1-after.pdf}}\\
+        \subfigure[]{\label{fig:#1-before-hist}\includeGraphics[trim = 40mm 80mm 40mm 88mm, clip, 
+    width=0.4\textwidth]{figures/#1-before-hist.pdf}}
+        \subfigure[]{\label{fig:#1-after-hist}\includeGraphics[trim = 40mm 80mm 40mm 88mm, clip, 
+    width=0.4\textwidth]{figures/#1-after-hist}}
+        \caption[#2]{#2. Mesh configuration before \subref{fig:#1-before} and after \subref{fig:#1-after} smoothing. Shape quality histogram before \subref{fig:#1-before-hist} and after \subref{fig:#1-after-hist} smoothing.}
+        \label{fig:#1}
+    \end{figure}	
+}
+
+\newcommand{\mySubfigureTwoAVS}[3]{
+    \begin{figure}[t!]
+        \centering
+        \subfigure[]{\label{fig:#1-before-comp}\includeGraphics[trim = #3, clip, width=0.4
+    \textwidth]{figures/#1-before.pdf}}
+        \subfigure[]{\label{fig:#1-after-comp}\includeGraphics[trim = #3, clip, width=0.4
+    \textwidth]{figures/#1-after.pdf}}
+        \caption[#2]{#2. Mesh configuration before \subref{fig:#1-before} and after \subref{fig:#1-after} smoothing.}
+        \label{fig:#1-comp}
+    \end{figure}	
+}
+
+\newcommand{\myQualityTable}[9]{
+    \begin{table}[h!]
+    \centering
+        \begin{tabular}{lcc}
+        \hline
+        & Before & After \\
+        \hline
+        Minimum   & #2 & #6 \\
+        Maximum   & #3 & #7 \\
+        Mean      & #4 & #8 \\
+        Std. dev. & #5 & #9 \\
+        \hline
+        \end{tabular} 
+    \caption{Shape-based quality statistical values for \fref{fig:#1}}
+    \label{tbl:#1}
+    \end{table}
+}
+
+\newcommand{\mySubfigureThree}[2]{
+    \begin{figure}[t!]
+        \centering
+        \subfigure[]{\label{fig:#1-before}\includeGraphics[trim = 52mm 87mm 52mm 87mm, clip, width=0.3\textwidth]{figures/#1-before.pdf}}
+        \subfigure[]{\label{fig:#1-after}\includeGraphics[trim = 52mm 87mm 52mm 87mm, clip, width=0.3\textwidth]{figures/#1-after.pdf}}
+        \subfigure[]{\label{fig:#1-histo}\includeGraphics[trim = 38mm 84mm 40mm 88mm, clip, width=0.3\textwidth]{figures/#1-before-hist.pdf}}
+        \caption[#2]{#2. Mesh configuration before \subref{fig:#1-before} and after \subref{fig:#1-after} smoothing. Quality histogram before and after \subref{fig:#1-histo}.}
+        \label{fig:#1}
+    \end{figure}	
+}
+

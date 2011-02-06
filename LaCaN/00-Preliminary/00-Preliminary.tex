@@ -1,0 +1,50 @@
+% !TEX root = ../LaCaNtesis.tex
+
+% ==============================================================================
+% declaration of variables for the thesis 
+\def\myname{YOUR NAME}
+\def\myadvisor{YOUR ADVISOR NAME}
+\def\mytitle{YOUR THESIS TITLE}
+\def\mydate{MONTH YEAR}
+\def\myEmailAddress{YOUR EMAIL}
+
+\def\myStreet{STREET NAME}
+\def\myStreetNumber{STREET NUMBER} % omit #
+\def\myCity{CITY}
+\def\myState{STATE} % N.L. if Nuevo Leon
+\def\myZipCode{ZIP CODE}
+\def\myCountry{COUNTRY}
+
+\def\myMailingAddress{\noindent\myname\\*\myStreet\ \#\myStreetNumber \\*\myCity, \myState\ C.P.\ \myZipCode\\*\myCountry}
+
+% ==============================================================================
+\setAuthor{\myname}
+
+\setTitle{\mytitle}
+
+\setAdvisor{\myadvisor}
+
+\setDate{\mydate}
+
+\doTitle
+
+
+\input{00-preliminary/00-initial}
+
+\cleardoublepage
+
+\input{00-preliminary/00-abstract}
+
+\cleardoublepage
+
+\input{00-preliminary/00-acknowl}
+
+\cleardoublepage
+
+\doContents
+
+\cleardoublepage
+
+\pagenumbering{arabic}
+
+\pagestyle{fancy}
